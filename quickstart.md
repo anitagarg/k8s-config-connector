@@ -25,7 +25,7 @@ gcloud config set project {{project-id}}
 Enable the Kubernetes API, which you will need for this tutorial.
 
 ```sh  
-gcloud services enable kubernetes.googleapis.com  
+gcloud services enable container.googleapis.com  
 ```
 
 ```sh  
@@ -157,4 +157,4 @@ kubectl --namespace {{project-id}} delete -f spanner-instance.yaml
 ## What's Next
 
 +   Learn about how Config Connector models GCP resources with [Kubernetes constructs](https://cloud.google.com/config-connector/docs/concepts/resources).
-+   See the [GCP resources](https://cloud.google.com/config-connector/docs/reference/resources) Config Connector can manage.
++   See the [GCP resources](https://cloud.google.com/config-connector/docs/reference/resources) Config Connector can manage. 
