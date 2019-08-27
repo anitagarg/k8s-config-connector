@@ -1,5 +1,9 @@
 # GCP Config Connector Samples
 
+## Run the quickstart tutorial
+
+[![Open in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.svg)](https://console.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https%3A%2F%2Fgithub.com%2Fanitagarg%2Fk8s-config-connector&cloudshell_tutorial=quickstart.md)
+
 Config Connector is a Kubernetes add-on that allows customers to manage GCP
 resources, such as Cloud Spanner or Cloud Storage, through your cluster's API.
 
