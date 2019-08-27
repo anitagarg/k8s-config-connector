@@ -28,13 +28,56 @@ Enable the Kubernetes API, which you will need for this tutorial.
 gcloud services enable container.googleapis.com  
 ```
 
+### Create an identity
+
+A Config Connector cluster needs a GCP identity to communicate with other resources.
+
+To set up the identity, first run the following command to create the `cnrm-system` Service Account:
+
+```sh  
+gcloud iam service-accounts create cnrm-system  
+```
+
+Next, give the IAM Service Account elevated permissions using the following command:
+
+```sh  
+gcloud projects add-iam-policy-binding {{project-id}} \  
+  --member serviceAccount:cnrm-system@{{project-id}}.iam.gserviceaccount.com \  
+  --role roles/owner  
+```
+
+Create a Service Account Key and export its credentials to a file:
+
+```sh  
+gcloud iam service-accounts keys create --iam-account \  
+ cnrm-system@{{project-id}}.iam.gserviceaccount.com key.json  
+```
+
+Create the `cnrm-system` namespace:
+
+```sh  
+kubectl create namespace cnrm-system  
+```
+
+Import the key's credentials as a **Secret**. In Kubernetes, Secrets are objects used to store sensitive data with encryption:
+
+```sh  
+ kubectl create secret generic gcp-key --from-file key.json --namespace cnrm-system  
+```
+
+Then, remove the credentials from your system:
+
+```sh  
+rm key.json  
+```
+
+### Install Config Connector
+
+Install ConfigConnector on your cluster using `kubectl`:
+
 ```sh  
 kubectl  
 ```
-
-Creating the ClusterRoleBinding  
-Create an Identity  
-Installing Config Connector (use kubectl)
 
 Enable the Cloud Spanner service using the following command:
 
