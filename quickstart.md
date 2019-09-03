@@ -41,15 +41,15 @@ gcloud iam service-accounts create cnrm-system
 Next, give the IAM Service Account elevated permissions using the following command:
 
 ```sh  
-gcloud projects add-iam-policy-binding {{project-id}} \  
-  --member serviceAccount:cnrm-system@{{project-id}}.iam.gserviceaccount.com \  
+gcloud projects add-iam-policy-binding {{project-id}}   
+  --member serviceAccount:cnrm-system@{{project-id}}.iam.gserviceaccount.com   
   --role roles/owner  
 ```
 
 Create a Service Account Key and export its credentials to a file:
 
 ```sh  
-gcloud iam service-accounts keys create --iam-account \  
+gcloud iam service-accounts keys create --iam-account   
  cnrm-system@{{project-id}}.iam.gserviceaccount.com key.json  
 ```
 
